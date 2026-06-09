@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Rust
+core/target/
+*.pdb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs
+*.log
+laap_run.log
+
+# Config secrets
+laap.config.json
+*.secret
+
+# Docker
+.docker/
+
+# CodeAtlas
+.codeatlas/
+
+# Misc
+*.lock
+laap_run.log
+*.secret
+laap.config.json
+_build/
+
+# External projects / research code
+AFlow/
+Harnessing-Agentic-Evolution/
+code/
+implementations/
+k8s/
+benchmarks/
+
+# Binary artifacts (keep in repo only if intentional)
+*.ico
+*.jpg
+*.png
+!logo_*.png
+!logo_*.jpg
+
+# Node modules (huge - never commit)
+node_modules/
+ui/node_modules/
+npm/laap-ai/node_modules/
+
+# Large PDFs
+*.pdf

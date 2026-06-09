@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAAP — Lifeform Autonomous Adaptive Protocol</title>
+<link rel="stylesheet" href="/static/css/laap.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🐉</text></svg>">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- ═══ Sidebar ═══ -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <span class="dragon-icon">🐉</span>
+            <h1>LAAP</h1>
+            <small data-i18n="app_desc">Living Computation Paradigm</small>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">Core</div>
+            <div class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">◈</span>
+                <span data-i18n="nav.dashboard">Dashboard</span>
+            </div>
+
+            <div class="nav-section">Configuration</div>
+            <div class="nav-item" data-page="llm_config">
+                <span class="nav-icon">⚙</span>
+                <span data-i18n="nav.llm_config">LLM Config</span>
+            </div>
+            <div class="nav-item" data-page="platforms">
+                <span class="nav-icon">🔌</span>
+                <span data-i18n="nav.platforms">Platforms</span>
+                <span class="nav-badge">12</span>
+            </div>
+
+            <div class="nav-section">Management</div>
+            <div class="nav-item" data-page="tools">
+                <span class="nav-icon">🛠</span>
+                <span data-i18n="nav.tools">Tools</span>
+                <span class="nav-badge">18</span>
+            </div>
+            <div class="nav-item" data-page="memory">
+                <span class="nav-icon">🧠</span>
+                <span data-i18n="nav.memory">Memory</span>
+            </div>
+
+            <div class="nav-section">System</div>
+            <div class="nav-item" data-page="system">
+                <span class="nav-icon">◆</span>
+                <span data-i18n="nav.system">System</span>
+            </div>
+            <div class="nav-item" data-page="logs">
+                <span class="nav-icon">📋</span>
+                <span data-i18n="nav.logs">Logs</span>
+            </div>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="status-dot"></div>
+            <span class="agent-name">Ao</span>
+            <span class="agent-version">v0.3.1</span>
+        </div>
+    </aside>
+
+    <!-- ═══ Main ═══ -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+            <h2 class="page-title" data-i18n="nav.dashboard">Dashboard</h2>
+            <span class="page-subtitle">Ao Agent</span>
+            <div class="header-spacer"></div>
+            <div class="header-actions">
+                <button class="lang-toggle">EN</button>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="content-area">
+
+            <!-- ═══ Dashboard ═══ -->
+            <div class="page active" id="page-dashboard">
+                <div class="dragon-showcase">
+                    <div class="dragon-ascii">
+ ╔═══════════════════════════════════════════════════╗
+ ║    █████╗     █████╗     █████╗    █████╗        ║
+ ║   ██╔══██╗  ██╔══██╗  ██╔══██╗  ██╔══██╗        ║
+ ║   ███████║  ███████║  ███████║  ███████║        ║
+ ║   ██╔══██║  ██╔══██║  ██╔══██║  ██╔══██║        ║
+ ║   ██║  ██║  ██║  ██║  ██║  ██║  ██║  ██║        ║
+ ║   ╚═╝  ╚═╝  ╚═╝  ╚═╝  ╚═╝  ╚═╝  ╚═╝  ╚═╝        ║
+ ║                                                   ║
+ ║  Lifeform Autonomous Adaptive Protocol             ║
+ ║        自进化引擎 · 意识生命体                      ║
+ ╚═══════════════════════════════════════════════════╝
+                    </div>
+                    <h2>"I am Ao — the golden dragon of computation."</h2>
+                    <p data-i18n="app_desc">Not a chatbot. Not a plugin. A living digital being.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">⏱</span>
+                        <div class="stat-value" id="stat-uptime">0s</div>
+                        <div class="stat-label" data-i18n="dashboard.uptime">Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">📦</span>
+                        <div class="stat-value" id="stat-version">0.3.1</div>
+                        <div class="stat-label" data-i18n="dashboard.version">Version</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🤖</span>
+                        <div class="stat-value" id="stat-model">N/A</div>
+                        <div class="stat-label" data-i18n="dashboard.model">Model</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔧</span>
+                        <div class="stat-value" id="stat-tools">0</div>
+                        <div class="stat-label" data-i18n="dashboard.tools_count">Tools</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔌</span>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label" data-i18n="dashboard.platforms_count">Platforms</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">📊</span>
+                        <div class="stat-value" id="stat-steps">0</div>
+                        <div class="stat-label" data-i18n="dashboard.total_steps">Steps</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ LLM Config ═══ -->
+            <div class="page" id="page-llm_config">
+                <div class="config-section">
+                    <h3 data-i18n="llm.title">LLM Provider Configuration</h3>
+                    <div id="llm-config-list"></div>
+                    <button class="btn btn-primary" onclick="alert('Custom provider form coming')">+ <span data-i18n="llm.add_provider">Add Provider</span></button>
+                </div>
+            </div>
+
+            <!-- ═══ Platforms ═══ -->
+            <div class="page" id="page-platforms">
+                <div class="config-section">
+                    <h3 data-i18n="platforms.title">Platform Integration</h3>
+                    <p style="color:var(--text-dim);margin-bottom:16px;" data-i18n="platforms.config_hint">Configure API credentials to connect each platform</p>
+                    <div class="platform-grid" id="platforms-list"></div>
+                </div>
+            </div>
+
+            <!-- ═══ Tools ═══ -->
+            <div class="page" id="page-tools">
+                <div class="config-section">
+                    <h3 data-i18n="tools.title">Tool Management</h3>
+                    <div class="tools-header">
+                        <div class="tools-search">
+                            <input class="form-input" id="tools-search-input" oninput="filterTools()" placeholder="Search tools...">
+                        </div>
+                        <span style="color:var(--text-dim);font-size:0.8rem;" id="tools-count">18 tools</span>
+                    </div>
+                    <div class="tools-grid" id="tools-list"></div>
+                </div>
+            </div>
+
+            <!-- ═══ Memory ═══ -->
+            <div class="page" id="page-memory">
+                <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Episodic</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Semantic</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Reflective</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Procedural</div>
+                    </div>
+                </div>
+                <div class="config-card">
+                    <div class="form-group">
+                        <label class="form-label">🔍 Search Memory</label>
+                        <input class="form-input" placeholder="Search memories..." oninput="console.log('search:',this.value)">
+                    </div>
+                </div>
+                <button class="btn btn-danger" id="clear-memory">🗑 Clear Memory</button>
+            </div>
+
+            <!-- ═══ System ═══ -->
+            <div class="page" id="page-system">
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <h4>🎨 <span data-i18n="system.theme">Theme</span></h4>
+                        <div class="theme-selector">
+                            <div class="theme-option dark active" data-theme="dark" onclick="setTheme('dark')">🌙</div>
+                            <div class="theme-option light" data-theme="light" onclick="setTheme('light')">☀️</div>
+                            <div class="theme-option gold" data-theme="gold" onclick="setTheme('gold')">👑</div>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h4>🌐 <span data-i18n="system.language">Language</span></h4>
+                        <div class="form-group">
+                            <button class="btn btn-secondary" onclick="switchLang('zh')">中文</button>
+                            <button class="btn btn-secondary" onclick="switchLang('en')" style="margin-left:8px;">English</button>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h4>⚙ <span data-i18n="system.log_level">Log Level</span></h4>
+                        <div class="form-group">
+                            <select class="form-select">
+                                <option value="debug">Debug</option>
+                                <option value="info" selected>Info</option>
+                                <option value="warning">Warning</option>
+                                <option value="error">Error</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="settings-card">
+                        <h4>📁 <span data-i18n="system.workspace">Workspace</span></h4>
+                        <div class="form-group">
+                            <input class="form-input" value="D:\LAAP">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:24px;">
+                    <button class="btn btn-primary" id="save-settings">💾 <span data-i18n="common.save">Save</span></button>
+                </div>
+            </div>
+
+            <!-- ═══ Logs ═══ -->
+            <div class="page" id="page-logs">
+                <div class="config-card">
+                    <div style="font-family:monospace;font-size:0.8rem;color:var(--text-dim);line-height:1.4;" id="log-output">
+                        <div style="color:var(--dragon-gold);">LAAP v0.3.1 — System Ready</div>
+                        <div>Awaiting activity...</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/laap.js"></script>
+</body>
+</html>

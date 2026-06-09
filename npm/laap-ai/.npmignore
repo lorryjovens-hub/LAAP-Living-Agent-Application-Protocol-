@@ -1,0 +1,8 @@
+node_modules/
+test/
+.npmignore
+.editorconfig
+.prettierrc
+.github/
+*.log
+.DS_Store

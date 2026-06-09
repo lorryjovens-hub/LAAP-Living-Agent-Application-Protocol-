@@ -1,0 +1,222 @@
+{
+  "app_name": "LAAP",
+  "app_subtitle": "Lifeform Autonomous Adaptive Protocol",
+  "app_desc": "Living Computation Paradigm",
+
+  "nav": {
+    "dashboard": "Dashboard",
+    "llm_config": "LLM Config",
+    "platforms": "Platforms",
+    "tools": "Tools",
+    "skills": "Skills",
+    "memory": "Memory",
+    "system": "System",
+    "plugins": "Plugins",
+    "logs": "Logs"
+  },
+
+  "dashboard": {
+    "title": "System Overview",
+    "status": "Status",
+    "uptime": "Uptime",
+    "version": "Version",
+    "model": "Current Model",
+    "provider": "Provider",
+    "tools_count": "Available Tools",
+    "platforms_count": "Connected Platforms",
+    "memory_usage": "Memory Usage",
+    "total_steps": "Total Steps",
+    "fitness": "Fitness Score",
+    "start_agent": "Start Agent",
+    "stop_agent": "Stop Agent",
+    "agent_running": "Agent Running",
+    "agent_stopped": "Agent Stopped"
+  },
+
+  "llm": {
+    "title": "LLM Provider Configuration",
+    "provider": "Provider",
+    "api_key": "API Key",
+    "api_url": "API URL",
+    "model": "Model",
+    "temperature": "Temperature",
+    "max_tokens": "Max Tokens",
+    "add_provider": "Add Provider",
+    "test_connection": "Test Connection",
+    "connection_success": "Connection Successful",
+    "connection_failed": "Connection Failed",
+    "save_config": "Save Configuration",
+    "provider_placeholder": "Select provider...",
+    "custom": "Custom (OpenAI Compatible)",
+    "api_key_placeholder": "Enter API Key",
+    "api_url_placeholder": "Enter API URL (optional)",
+    "model_placeholder": "Enter model name"
+  },
+
+  "platforms": {
+    "title": "Platform Integration",
+    "platform": "Platform",
+    "status": "Status",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "config_hint": "Configure API credentials to connect",
+    "enable": "Enable",
+    "disable": "Disable",
+    "platforms": {
+      "telegram": {
+        "name": "Telegram",
+        "desc": "Send and receive messages via Telegram Bot API",
+        "config": "bot_token",
+        "config_label": "Bot Token",
+        "config_placeholder": "Enter Telegram Bot Token",
+        "hint": "Get Bot Token from @BotFather"
+      },
+      "discord": {
+        "name": "Discord",
+        "desc": "Connect Discord Bot to server channels",
+        "config": "bot_token",
+        "config_label": "Bot Token",
+        "config_placeholder": "Enter Discord Bot Token",
+        "hint": "Create Bot from Discord Developer Portal"
+      },
+      "slack": {
+        "name": "Slack",
+        "desc": "Connect Slack Bot to workspace",
+        "config": "bot_token",
+        "config_label": "Bot Token",
+        "config_placeholder": "Enter Slack Bot Token",
+        "hint": "Create Bot Token from Slack API"
+      },
+      "whatsapp": {
+        "name": "WhatsApp",
+        "desc": "Connect via Meta Cloud API",
+        "config": "api_token",
+        "config_label": "API Token",
+        "config_placeholder": "Enter WhatsApp API Token",
+        "hint": "Get from Meta Developer Portal"
+      },
+      "feishu": {
+        "name": "Feishu / Lark",
+        "desc": "Connect Feishu/Lark messaging",
+        "config": "app_id",
+        "config_label": "App ID",
+        "config_placeholder": "Enter Feishu App ID",
+        "hint": "Create app from Feishu Developer Platform"
+      },
+      "dingtalk": {
+        "name": "DingTalk",
+        "desc": "Send messages via DingTalk bot Webhook",
+        "config": "webhook_token",
+        "config_label": "Webhook Token",
+        "config_placeholder": "Enter DingTalk Webhook Token",
+        "hint": "Get Webhook from DingTalk bot settings"
+      },
+      "wecom": {
+        "name": "WeCom",
+        "desc": "Connect WeCom (WeChat Work) application",
+        "config": "corpid",
+        "config_label": "Corp ID",
+        "config_placeholder": "Enter WeCom Corp ID",
+        "hint": "Get from WeCom admin console"
+      },
+      "weixin": {
+        "name": "WeChat Personal",
+        "desc": "Connect personal WeChat account (requires PC hook)",
+        "config_placeholder": "Requires additional PC client support"
+      },
+      "matrix": {
+        "name": "Matrix",
+        "desc": "Connect Matrix decentralized network",
+        "config": "homeserver",
+        "config_label": "Homeserver URL",
+        "config_placeholder": "https://matrix.org"
+      },
+      "email": {
+        "name": "Email SMTP",
+        "desc": "Send emails via SMTP",
+        "config": "smtp_host",
+        "config_label": "SMTP Server",
+        "config_placeholder": "smtp.gmail.com"
+      },
+      "signal": {
+        "name": "Signal",
+        "desc": "Send messages via Signal Messenger",
+        "config": "signal_url",
+        "config_label": "Signal API URL",
+        "config_placeholder": "http://localhost:8080"
+      },
+      "sms": {
+        "name": "SMS (Twilio)",
+        "desc": "Send SMS via Twilio API",
+        "config": "twilio_account",
+        "config_label": "Twilio Account SID",
+        "config_placeholder": "Enter Account SID"
+      }
+    }
+  },
+
+  "tools": {
+    "title": "Tool Management",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "toggle": "Toggle",
+    "search_tools": "Search tools...",
+    "category": "Category",
+    "no_results": "No matching tools found"
+  },
+
+  "memory": {
+    "title": "Memory System",
+    "total_entries": "Memory Entries",
+    "search_memory": "Search memory...",
+    "clear_memory": "Clear Memory",
+    "memory_types": {
+      "episodic": "Episodic",
+      "semantic": "Semantic",
+      "reflective": "Reflective",
+      "procedural": "Procedural"
+    }
+  },
+
+  "system": {
+    "title": "System Settings",
+    "language": "Language",
+    "language_zh": "中文",
+    "language_en": "English",
+    "theme": "Theme",
+    "theme_dark": "Dark",
+    "theme_light": "Light",
+    "theme_gold": "Gold",
+    "log_level": "Log Level",
+    "log_levels": {
+      "debug": "Debug",
+      "info": "Info",
+      "warning": "Warning",
+      "error": "Error"
+    },
+    "workspace": "Workspace",
+    "auto_start": "Auto Start",
+    "save_settings": "Save Settings",
+    "settings_saved": "Settings Saved"
+  },
+
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "search": "Search",
+    "loading": "Loading...",
+    "success": "Success",
+    "error": "Error",
+    "confirm": "Confirm",
+    "close": "Close",
+    "status": "Status",
+    "name": "Name",
+    "description": "Description"
+  }
+}
