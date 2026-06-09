@@ -22,7 +22,11 @@ from laap.cli.repl import LAAP_REPL
 from laap.cli.skins import render_logo, GOLD, GOLD_BRIGHT, GOLD_DIM, RESET, BOLD, SYM
 from laap.cli.config_manager import config_manager
 from laap.cli.wizard.startup import show_logo, show_intro, run_wizard, check_config, show_help
-from laap.ui import LAAP_TUI
+
+# LAAP_TUI requires textual (optional dep) — lazy import to avoid crash when textual is not installed
+def _get_tui():
+    from laap.ui import LAAP_TUI
+    return LAAP_TUI
 
 
 
@@ -304,7 +308,7 @@ Examples:
         if not args.quiet:
             animated_startup(agent)
         try:
-            tui = LAAP_TUI(agent, config_manager)
+            tui = _get_tui()(agent, config_manager)
             tui.run()
         except Exception as e:
             # TUI failed (e.g. unsupported terminal in IDE) — fall back to REPL
