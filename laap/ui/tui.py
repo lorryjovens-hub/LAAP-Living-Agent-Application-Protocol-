@@ -57,6 +57,96 @@ from laap.cron.reminder import get_reminder_engine
 
 logger = logging.getLogger("laap.ui.tui")
 
+import re as _md_re
+from rich.text import Text as _RichText
+from rich.style import Style as _RichStyle
+
+
+class StreamingMarkdown:
+    """Progressive markdown renderer for streaming LLM output."""
+
+    _BOLD = _md_re.compile(r'\*\*(.+?)\*\*')
+    _ITALIC = _md_re.compile(r'\*(.+?)\*')
+    _CODE = _md_re.compile(r'`(.+?)`')
+    _HEADING = _md_re.compile(r'^(#{1,6})\s+(.+)$', _md_re.MULTILINE)
+    _LINK = _md_re.compile(r'\[(.+?)\]\((.+?)\)')
+
+    @classmethod
+    def render(cls, text, base_style=None):
+        if not text:
+            return _RichText("", style=base_style or _RichStyle(color="#C8C8C8"))
+        result = _RichText(style=base_style or _RichStyle(color="#C8C8C8"))
+        for line in text.split('\n'):
+            if line.strip().startswith('```'):
+                result.append(line + '\n', style=_RichStyle(color="#B8960C", italic=True))
+                continue
+            heading = cls._HEADING.match(line)
+            if heading:
+                level = len(heading.group(1))
+                h_text = heading.group(2)
+                colors = ["#FFD700", "#FFCC00", "#FFC000", "#FFB800", "#FFAD00", "#FFA500"]
+                result.append(h_text + '\n', style=_RichStyle(color=colors[min(level-1, 5)], bold=True))
+                continue
+            result.append_text(cls._render_inline(line))
+            result.append('\n')
+        return result
+
+    @classmethod
+    def _render_inline(cls, text):
+        result = _RichText()
+        pos = 0
+        matches = []
+        for m in cls._BOLD.finditer(text):
+            matches.append((m.start(), 'bold', m.group(1), m.end()))
+        for m in cls._ITALIC.finditer(text):
+            matches.append((m.start(), 'italic', m.group(1), m.end()))
+        for m in cls._CODE.finditer(text):
+            matches.append((m.start(), 'code', m.group(1), m.end()))
+        for m in cls._LINK.finditer(text):
+            matches.append((m.start(), 'link', (m.group(1), m.group(2)), m.end()))
+        matches.sort(key=lambda x: x[0])
+        merged = []
+        for m in matches:
+            if merged and m[0] < merged[-1][3]:
+                existing = merged[-1]
+                if (m[3] - m[0]) > (existing[3] - existing[0]):
+                    merged[-1] = m
+            else:
+                merged.append(m)
+        styles = {
+            'bold': _RichStyle(color="#FFE55C", bold=True),
+            'italic': _RichStyle(color="#D4D4D4", italic=True),
+            'code': _RichStyle(color="#FFE08A", bgcolor="#1a1a2e"),
+            'link': _RichStyle(color="#4FC1FF", underline=True),
+        }
+        for start, mtype, mcontent, end in merged:
+            if start > pos:
+                result.append(text[pos:start], style=_RichStyle(color="#C8C8C8"))
+            if mtype == 'link':
+                label, url = mcontent
+                result.append(label, style=styles['link'])
+            else:
+                result.append(mcontent, style=styles[mtype])
+            pos = end
+        if pos < len(text):
+            result.append(text[pos:], style=_RichStyle(color="#C8C8C8"))
+        return result
+
+    @classmethod
+    def strip(cls, text):
+        text = cls._BOLD.sub(r'\1', text)
+        text = cls._ITALIC.sub(r'\1', text)
+        text = cls._CODE.sub(r'\1', text)
+        text = cls._LINK.sub(r'\1', text)
+        return text
+
+
+def rich_markdown(text, base_color="#C8C8C8"):
+    """Render markdown to Rich text with gold dragon theme."""
+    return StreamingMarkdown.render(text, _RichStyle(color=base_color))
+
+
+
 
 # ── Constants ────────────────────────────────────────────────
 

@@ -64,7 +64,14 @@ class ProfileManager:
     The active profile is tracked via ~/.laap/active_profile.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, base_path: Optional[str] = None) -> None:
+        if base_path is not None:
+            self._base_path = Path(base_path)
+            self._profiles_dir = self._base_path / "profiles"
+            self._active_file = self._base_path / "active_profile"
+            self._profiles_dir.mkdir(parents=True, exist_ok=True)
+            if not self._active_file.exists():
+                self._active_file.write_text("default", encoding="utf-8")
         _ensure_default_profile()
 
     def create(self, name: str, clone_from: Optional[str] = None) -> Dict[str, Any]:

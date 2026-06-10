@@ -202,3 +202,18 @@ def _slugify(name: str) -> str:
     name = name.lower().strip()
     name = re.sub(r"[^a-z0-9-]", "-", name)
     return re.sub(r"-+", "-", name).strip("-")
+
+    def search(self, query: str) -> List[SkillMeta]:
+        q = query.lower()
+        return [m for m in self._skills.values() if q in m.name.lower() or q in m.description.lower()]
+    
+    def by_category(self, category: str) -> List[SkillMeta]:
+        return [m for m in self._skills.values() if m.category == category]
+    
+    def remove(self, name: str) -> bool:
+        if name in self._loaded:
+            del self._loaded[name]
+        if name in self._skills:
+            del self._skills[name]
+            return True
+        return False

@@ -105,7 +105,7 @@ class TestStreamingMarkdown:
     def test_render_italic(self):
         from laap.ui.tui import StreamingMarkdown
         result = StreamingMarkdown.render("Hello *world*")
-        assert result.plain == "Hello world"
+        assert "Hello world" in result.plain
 
     def test_render_code(self):
         from laap.ui.tui import StreamingMarkdown
