@@ -6,7 +6,7 @@ LAAP - Lifeform Autonomous Adaptive Protocol
 基于 Lifeform Autonomous Adaptive Protocol 协议规范。
 """
 
-__version__ = "0.3.0"
+__version__ = "0.3.3"
 __name__ = "LAAP"
 
 
