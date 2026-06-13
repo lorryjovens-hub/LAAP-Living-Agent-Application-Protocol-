@@ -1,1 +1,0 @@
-"""LAAP Memory Providers"""

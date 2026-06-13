@@ -1,1 +1,0 @@
-"""LAAP Gateway — Platform Adapters"""

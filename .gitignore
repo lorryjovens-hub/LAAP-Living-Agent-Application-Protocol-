@@ -1,83 +1,20 @@
-# Python
+# LAAP V5.0 — Root .gitignore
+# Ignore EVERYTHING except LAAP project files
+
+/*
+!/d/hermes-agent-LAAP数字生命版
+!/d/LAAP
+!/d/hermes-agent-main*
+
+# Within LAAP project: exclude common noise
+node_modules/
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
+.env
 *.egg-info/
-*.egg
+.venv/
 dist/
 build/
-eggs/
-.eggs/
-*.whl
-
-# Virtual environments
-.venv/
-venv/
-env/
-.env
-
-# Rust
-core/target/
-*.pdb
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+*.log
 .DS_Store
 Thumbs.db
-
-# Testing
-.coverage
-.coverage.*
-htmlcov/
-.pytest_cache/
-.tox/
-
-# Logs
-*.log
-laap_run.log
-
-# Config secrets
-laap.config.json
-*.secret
-
-# Docker
-.docker/
-
-# CodeAtlas
-.codeatlas/
-
-# Misc
-*.lock
-laap_run.log
-*.secret
-laap.config.json
-_build/
-
-# External projects / research code
-AFlow/
-Harnessing-Agentic-Evolution/
-code/
-implementations/
-k8s/
-benchmarks/
-
-# Binary artifacts (keep in repo only if intentional)
-*.ico
-*.jpg
-*.png
-!logo_*.png
-!logo_*.jpg
-
-# Node modules (huge - never commit)
-node_modules/
-ui/node_modules/
-npm/laap-ai/node_modules/
-
-# Large PDFs
-*.pdf

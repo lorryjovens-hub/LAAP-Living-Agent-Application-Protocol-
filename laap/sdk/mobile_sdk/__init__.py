@@ -1,1 +1,0 @@
-"""LAAP Mobile SDK"""

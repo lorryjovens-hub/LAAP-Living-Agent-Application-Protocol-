@@ -1,8 +1,0 @@
-{
-  "name": "laap",
-  "version": "0.3.0",
-  "description": "LAAP - Lifeform Autonomous Adaptive Protocol",
-  "license": "MIT",
-  "bin": {"laap": "./bin/laap.js"},
-  "engines": {"node": ">=18.0.0"}
-}
